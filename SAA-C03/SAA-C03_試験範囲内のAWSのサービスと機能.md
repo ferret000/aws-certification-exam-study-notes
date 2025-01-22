@@ -51,7 +51,7 @@
 
 - ストリーミングデータをリアルタイムで収集、処理するサービス。
 
-#### 2.1.8. Amazon Kinesis Data Streams
+#### 2.1.7. Amazon Kinesis Data Streams
 
 ##### 概要
 
@@ -62,7 +62,7 @@
   - アプリケーションは Kinesis Client Library (KCL) を活用して構築可能。
   - 実行環境には Amazon EC2 インスタンス を使用。
 
-#### 2.1.7. Amazon Kinesis Data Firehose
+#### 2.1.8. Amazon Kinesis Data Firehose
 
 ##### 概要
 
@@ -554,7 +554,7 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 
 - [CloudFormation テンプレートセクション](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
-#### 2.10.2. AWS Serverless Application Model (AWS SAM)
+#### 2.10.3. AWS Serverless Application Model (AWS SAM)
 
 ##### 概要
 
@@ -563,67 +563,67 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 - サーバーレスアプリケーションをローカルで構築、テスト、およびデバッグするための環境をデプロイ可能。
   - オンプレミスの VMware vSphere、Microsoft Hyper-V/SCVMM、または Azure 仮想マシンを AWS 環境に移行する。
 
-#### 2.10.3. AWS CloudTrail
+#### 2.10.4. AWS CloudTrail
 
 ##### 概要
 
 - AWS アカウント内での API 呼び出しを記録し、監査を支援するサービス。
 
-#### 2.10.4. Amazon CloudWatch
+#### 2.10.5. Amazon CloudWatch
 
 ##### 概要
 
 - AWS リソースやアプリケーションの監視とログ記録を提供するサービス。
 
-#### 2.10.5. AWS CLI
+#### 2.10.6. AWS CLI
 
 ##### 概要
 
 - AWS サービスをコマンドラインから操作するためのツール。
 
-#### 2.10.6. AWS Compute Optimizer
+#### 2.10.7. AWS Compute Optimizer
 
 ##### 概要
 
 - コンピューティングリソースのコストと性能を最適化する推奨を提供するサービス。
 
-#### 2.10.7. AWS Config
+#### 2.10.8. AWS Config
 
 ##### 概要
 
 - リソースの構成変更を追跡し、コンプライアンスの監視をサポートするサービス。
 
-#### 2.10.8. AWS Control Tower
+#### 2.10.9. AWS Control Tower
 
 ##### 概要
 
 - マルチアカウントの AWS 環境を管理するためのガバナンスサービス。
 
-#### 2.10.9. AWS Health Dashboard
+#### 2.10.10. AWS Health Dashboard
 
 ##### 概要
 
 - AWS サービスの状態をリアルタイムで確認するためのダッシュボード。
 
-#### 2.10.10. AWS License Manager
+#### 2.10.11. AWS License Manager
 
 ##### 概要
 
 - ソフトウェアライセンスの管理と監視を支援するサービス。
 
-#### 2.10.11. Amazon Managed Grafana
+#### 2.10.12. Amazon Managed Grafana
 
 ##### 概要
 
 - データの可視化とダッシュボード作成を行う Grafana のマネージド型サービス。
 
-#### 2.10.12. Amazon Managed Service for Prometheus
+#### 2.10.13. Amazon Managed Service for Prometheus
 
 ##### 概要
 
 - メトリクスのモニタリングとアラートに特化した Prometheus のマネージドサービス。
 
-#### Amazon Managed Service for Apache Flink
+#### 2.10.14. Amazon Managed Service for Apache Flink
 
 ##### 概要
 
@@ -631,13 +631,13 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
   - 構築したアプリケーションによってデータ分割などのクエリ処理を実行可能。
 - 画像解析データの解析には不向き。
 
-#### 2.10.13. AWS マネジメントコンソール
+#### 2.10.15. AWS マネジメントコンソール
 
 ##### 概要
 
 - AWS リソースをブラウザから操作するための GUI。
 
-#### 2.10.14. AWS Organizations
+#### 2.10.16. AWS Organizations
 
 ##### 概要
 
@@ -650,31 +650,31 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
   - ルートアカウント単位で組織を管理するためのポリシータイプ
   - 各メンバーアカウントが利用する AWS サービスリストの拒否・許可設定を実施できる。
 
-#### 2.10.15. AWS Proton
+#### 2.10.17. AWS Proton
 
 ##### 概要
 
 - マイクロサービスのインフラをテンプレートとして管理するサービス。
 
-#### 2.10.16. AWS Service Catalog
+#### 2.10.18. AWS Service Catalog
 
 ##### 概要
 
 - IT サービスを組織内で提供するためのツール。
 
-#### 2.10.17. AWS Systems Manager
+#### 2.10.19. AWS Systems Manager
 
 ##### 概要
 
 - AWS リソースとオンプレミス環境の運用管理を統合するサービス。
 
-#### 2.10.18. AWS Trusted Advisor
+#### 2.10.20. AWS Trusted Advisor
 
 ##### 概要
 
 - コスト、セキュリティ、パフォーマンス、耐障害性を最適化する推奨を提供するツール。
 
-#### 2.10.19. AWS Well-Architected Tool
+#### 2.10.21. AWS Well-Architected Tool
 
 ##### 概要
 
@@ -732,7 +732,7 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 
 - 大規模データを物理的に AWS に移行するためのハードウェアデバイス群（Snowcone、Snowball、Snowmobile）。
 
-#### 2.12.6. AWS Snowball
+#### 2.12.7. AWS Snowball
 
 ##### 概要
 
@@ -750,7 +750,7 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
   - 3 互換オブジェクトストレージまたは EBS 互換ブロックボリューム用に 100TB の HDD 容量を提供する。
     - 実際に利用可能なボリュームは 80TB ほど。
 
-#### 2.12.7. AWS Transfer Family
+#### 2.12.8. AWS Transfer Family
 
 ##### 概要
 
