@@ -1,29 +1,29 @@
 # [SAA-C03]試験範囲内の AWS のサービスと機能<!-- omit in toc -->
 
-## はじめに
+## 1. はじめに
 
 - [SAA-C03] AWS Certified Solutions Architect - Associate の試験範囲内の AWS サービスと機能についてまとめます
 - 試験概要は[**こちら**](勉強記録_SAA-C03.md)を参照してください
 - 記載内容は、ChatGPT、AWS 公式ページ、Udemy 講座の解説[^1]、その他 Web サイト[^2][^3][^4][^5][^6]を基にしています。
   - ChatGPT に概要を追加させたものを記載。勉強を進める中で更新予定。
 
-## 範囲内の AWS のサービスと機能
+## 2. 範囲内の AWS のサービスと機能
 
-### 分析
+### 2.1. 分析
 
-#### Amazon Athena
+#### 2.1.1. Amazon Athena
 
 ##### 概要
 
 - 標準 SQL を使用して Simple Storage Service (Amazon S3) 内のデータを直接、シンプルに分析できるようにするインタラクティブなクエリサービスです。
 
-#### Amazon Kinesis
+#### 2.1.2. Amazon Kinesis
 
 ##### 概要
 
 - ストリーミングデータをリアルタイムで収集、処理するためのサービス。データ分析やストリーム処理に利用される。
 
-#### Amazon Kinesis Data Streams
+#### 2.1.3. Amazon Kinesis Data Streams
 
 ##### 概要
 
@@ -34,7 +34,7 @@
   - アプリケーションは Kinesis Client Library (KCL) を活用して構築可能。
   - 実行環境には Amazon EC2 インスタンス を使用。
 
-#### Amazon Kinesis Data Firehose
+#### 2.1.4. Amazon Kinesis Data Firehose
 
 ##### 概要
 
@@ -44,49 +44,49 @@
   - Kinesis Data Streams からデータを受け取って処理を継続可能。
   - Lambda 関数 を組み込んでデータ変換処理を実行可能。
 
-#### Amazon OpenSearch Service
+#### 2.1.5. Amazon OpenSearch Service
 
 ##### 概要
 
 - オープンソースの検索および分析エンジンである OpenSearch をマネージドで提供。ログ分析や検索エクスペリエンスに使用。
 - Elasticsearchは今後サポートしない？
 
-### アプリケーション統合
+### 2.2. アプリケーション統合
 
-#### AWS AppSync
+#### 2.2.1. AWS AppSync
 
 ##### 概要
 
 - GraphQL API を構築し、リアルタイムデータ同期と API 作成を容易にするサービス。
 
-#### Amazon EventBridge
+#### 2.2.2. Amazon EventBridge
 
 ##### 概要
 
 - AWS サービスや独自アプリケーション間のイベントを接続・統合するための、サーバーレスなイベントバスサービス。
 
-#### Amazon Simple Notification Service (Amazon SNS)
+#### 2.2.3. Amazon Simple Notification Service (Amazon SNS)
 
 ##### 概要
 
 - メッセージ配信やアプリケーション通知を提供するパブリッシュ/サブスクライブ型メッセージングサービス。
 
-#### Amazon Simple Queue Service (Amazon SQS)
+#### 2.2.4. Amazon Simple Queue Service (Amazon SQS)
 
 ##### 概要
 
 - 分散アプリケーション間での非同期メッセージ処理を簡単に実現するキューイングサービス。
 
-#### AWS Step Functions
+#### 2.2.5. AWS Step Functions
 
 ##### 概要
 
 - サーバーレスのワークフローオーケストレーションサービスで、複雑なプロセスを簡単に自動化。
 - 複雑な分散アプリケーションのワークフローを簡単にオーケストレーションするための、サーバーレスなワークフローオーケストレーションサービス。
 
-### コンピューティング
+### 2.3. コンピューティング
 
-#### Amazon EC2
+#### 2.3.1. Amazon EC2
 
 ##### 概要
 
@@ -111,13 +111,13 @@
   - 高速コンピューティング
     - P3、Inf1、G4（GPU）、F1（FPGA）など
 
-#### AWS Elastic Beanstalk
+#### 2.3.2. AWS Elastic Beanstalk
 
 ##### 概要
 
 - Web アプリケーションやサービスのデプロイとスケーリングを簡素化する PaaS (Platform as a Service)。
 
-#### AWS Lambda
+#### 2.3.3. AWS Lambda
 
 ##### 概要
 
@@ -126,7 +126,7 @@
   - 2022 年５月より、AWS Lambda のアップデートで最大 10GB まで拡張可能となったエフェメラルストレージを拡張できるようになった。
 - SAA-C03 の試験ガイドでは `サーバーレス` に分類。
 
-#### AWS Serverless Application Model (AWS SAM)
+#### 2.3.4. AWS Serverless Application Model (AWS SAM)
 
 ##### 概要
 
@@ -139,33 +139,33 @@
 - サーバーレスアプリケーションの構築、デプロイ、テストのためのフレームワーク。
 - SAA-C03 の試験ガイドでは `マネジメントとガバナンス` に分類。
 
-### コンテナ
+### 2.4. コンテナ
 
-#### AWS Copilot
+#### 2.4.1. AWS Copilot
 
 - コンテナ化されたアプリケーションを AWS にデプロイ、管理するための CLI ツール。
 
-#### Amazon Elastic Container Registry (Amazon ECR)
+#### 2.4.2. Amazon Elastic Container Registry (Amazon ECR)
 
 ##### 概要
 
 - Docker コンテナイメージを安全に保存、管理、デプロイできるレジストリサービス。
 
-#### Amazon Elastic Container Service (Amazon ECS)
+#### 2.4.3. Amazon Elastic Container Service (Amazon ECS)
 
 ##### 概要
 
 - コンテナのデプロイ、管理を簡単に行える AWS のスケーラブルなコンテナオーケストレーションサービス。
 
-#### Amazon Elastic Kubernetes Service (Amazon EKS)
+#### 2.4.4. Amazon Elastic Kubernetes Service (Amazon EKS)
 
 ##### 概要
 
 - Kubernetes を使用したコンテナ管理を AWS 上でサポートするマネージドサービス。
 
-### データベース
+### 2.5. データベース
 
-#### Amazon Aurora
+#### 2.5.1. Amazon Aurora
 
 ##### 概要
 
@@ -179,19 +179,19 @@
 - Aurora レプリカ
   - Aurora のリードレプリカ機能。15 台まで配置可能。
 
-#### Amazon Aurora Serverless
+#### 2.5.2. Amazon Aurora Serverless
 
 ##### 概要
 
 - 自動的にスケールする Aurora のサーバーレスオプション。
 
-#### Amazon DocumentDB (MongoDB 互換)
+#### 2.5.3. Amazon DocumentDB (MongoDB 互換)
 
 ##### 概要
 
 - MongoDB 互換の高可用性ドキュメントデータベースサービス。
 
-#### Amazon DynamoDB
+#### 2.5.4. Amazon DynamoDB
 
 ##### 概要
 
@@ -214,7 +214,7 @@
     - 例えば、データを別リージョンの DainamoDB へ自動的にレプリケーションすることが出来る。
   - DynamoDB テーブル内の項目レベルの変更の時系列シーケンスをキャプチャし、この情報を最大 24 時間ログに保存する。24 時間経過後はログが削除される。
 
-#### Amazon ElastiCache
+#### 2.5.5. Amazon ElastiCache
 
 ##### 概要
 
@@ -222,88 +222,88 @@
 - SQL クエリ処理結果をインメモリ DB に保持して高速化するために利用。
 - Redis または Memcached のインメモリデータストアを利用できるマネージドサービス。
 
-#### Amazon MemoryDB for Redis
+#### 2.5.6. Amazon MemoryDB for Redis
 
 - Redis をベースにした高可用性、高耐障害性のインメモリデータベースサービス。
 
-#### Amazon RDS
+#### 2.5.7. Amazon RDS
 
 ##### 概要
 
 - 複数のデータベースエンジン (MySQL、PostgreSQL、Oracle、MariaDB、SQL Server など) をサポートするリレーショナルデータベースサービス。
 
-### デベロッパーツール
+### 2.6. デベロッパーツール
 
-#### AWS Amplify
+#### 2.6.1. AWS Amplify
 
 ##### 概要
 
 - ウェブおよびモバイルアプリケーションの構築、デプロイ、ホスティングを簡単に行えるフルマネージドサービス。
 - SAA-C03 の試験ガイドでは `フロントエンドのウェブとモバイル` に分類。
 
-#### AWS Cloud9
+#### 2.6.2. AWS Cloud9
 
 - クラウドベースの統合開発環境 (IDE) を提供するサービス。
 
-#### AWS CloudShell
+#### 2.6.3. AWS CloudShell
 
 - ブラウザベースのシェル環境で AWS CLI を操作可能。
 
-#### AWS CodeArtifact
+#### 2.6.4. AWS CodeArtifact
 
 - ソフトウェアパッケージの管理と共有のためのリポジトリサービス。
 
-#### AWS CodeBuild
+#### 2.6.5. AWS CodeBuild
 
 - ソースコードをコンパイルし、テストとビルドを実行するための完全マネージドサービス。
 
-#### AWS CodeCommit
+#### 2.6.6. AWS CodeCommit
 
 - Git ベースのソースコードリポジトリをホストするマネージドサービス。
 
-#### AWS CodeDeploy
+#### 2.6.7. AWS CodeDeploy
 
 - ソフトウェアの自動デプロイメントをサポートするサービス。
 
-#### Amazon CodeGuru
+#### 2.6.8. Amazon CodeGuru
 
 - コードレビューとアプリケーションパフォーマンスチューニングのための ML ベースのサービス。
 
-#### AWS CodePipeline
+#### 2.6.9. AWS CodePipeline
 
 - 継続的インテグレーションとデリバリー (CI/CD) のためのサービス。
 
-#### AWS CodeStar
+#### 2.6.10. AWS CodeStar
 
 - アプリケーション開発プロジェクトを管理するためのツールセット。
 
-#### Amazon CodeWhisperer
+#### 2.6.11. Amazon CodeWhisperer
 
 - AI を使用してコードスニペットを提案するツール。
 
-#### AWS X-Ray
+#### 2.6.12. AWS X-Ray
 
 ##### 概要
 
 - 分散トレース機能を提供し、アプリケーションのパフォーマンスとデバッグを支援するサービス。
 
-### マネジメントとガバナンス
+### 2.7. マネジメントとガバナンス
 
-#### AWS AppConfig
+#### 2.7.1. AWS AppConfig
 
 - アプリケーション設定の管理とデプロイを行うサービス。
 
-#### AWS CLI
+#### 2.7.2. AWS CLI
 
 ##### 概要
 
 - AWS サービスをコマンドラインから操作するためのツール。
 
-#### AWS Cloud Development Kit (AWS CDK)
+#### 2.7.3. AWS Cloud Development Kit (AWS CDK)
 
 - プログラムコードで AWS リソースをプロビジョニングするためのフレームワーク。
 
-#### AWS CloudFormation
+#### 2.7.4. AWS CloudFormation
 
 - インフラストラクチャをコードとして管理できるテンプレートベースのプロビジョニングサービス。
 
@@ -335,33 +335,33 @@
 
 - [CloudFormation テンプレートセクション](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
-#### AWS CloudTrail
+#### 2.7.5. AWS CloudTrail
 
 ##### 概要
 
 - AWS アカウント内での API 呼び出しを記録し、監査を支援するサービス。
 
-#### Amazon CloudWatch
+#### 2.7.6. Amazon CloudWatch
 
 ##### 概要
 
 - AWS リソースやアプリケーションの監視とログ記録を提供するサービス。
 
-#### Amazon CloudWatch Logs
+#### 2.7.7. Amazon CloudWatch Logs
 
 ##### 概要
 
 - ログデータの収集、モニタリング、分析を行うサービス。
 
-#### AWS Systems Manager
+#### 2.7.8. AWS Systems Manager
 
 ##### 概要
 
 - AWS リソースとオンプレミス環境の運用管理を統合するサービス。
 
-### ネットワークとコンテンツ配信
+### 2.8. ネットワークとコンテンツ配信
 
-#### Amazon API Gateway
+#### 2.8.1. Amazon API Gateway
 
 ##### 概要
 
@@ -377,14 +377,14 @@
 - Restful API
 - WebSocket API
 
-#### Amazon CloudFront
+#### 2.8.2. Amazon CloudFront
 
 ##### 概要
 
 - コンテンツをグローバルに迅速かつ安全に配信するコンテンツ配信ネットワーク（CDN）。
 - ユーザーに近い位置にあるエッジロケーションにキャッシュを保持することで、高速のコンテンツ配信を実施する。
 
-#### Elastic Load Balancing (ELB)
+#### 2.8.3. Elastic Load Balancing (ELB)
 
 ##### 概要
 
@@ -402,7 +402,7 @@
   - 既存の接続を開いたまま、登録解除または異常なインスタンスへの ELB のリクエスト送信を停止する
 - ログ取得
 
-#### Amazon Route 53
+#### 2.8.4. Amazon Route 53
 
 ##### 概要
 
@@ -427,7 +427,7 @@
   - ネットワークの近接度に基づいて DNS クエリを最も近いエッジロケーションに送信する。
   - エッジロケーションのグローバルに分散されたネットワークから動作させることで、ユーザーによるアプリケーションへのアクセスが可能なように支援する。
 
-#### Amazon VPC
+#### 2.8.5. Amazon VPC
 
 ##### 概要
 
@@ -468,21 +468,21 @@
     - 最大 90％の割引
     - 実行時間に柔軟性がある場合や、中断出来る処理に利用する。
 
-### セキュリティ、アイデンティティ、コンプライアンス
+### 2.9. セキュリティ、アイデンティティ、コンプライアンス
 
-#### AWS Certificate Manager (ACM)
+#### 2.9.1. AWS Certificate Manager (ACM)
 
 ##### 概要
 
 - SSL/TLS 証明書を簡単に取得、デプロイ、管理するサービス。
 
-#### Amazon Cognito
+#### 2.9.2. Amazon Cognito
 
 ##### 概要
 
 - ユーザー認証やデバイス認証を提供・簡素化するアイデンティティ(ID)管理サービス。
 
-#### AWS Identity and Access Management (IAM)
+#### 2.9.3. AWS Identity and Access Management (IAM)
 
 ##### 概要
 
@@ -490,25 +490,25 @@
 
 ##### 主な機能
 
-#### AWS Key Management Service (AWS KMS)
+#### 2.9.4. AWS Key Management Service (AWS KMS)
 
 ##### 概要
 
 - データを保護するための暗号化キーの作成と管理サービス。
 
-#### AWS Private Certificate Authority
+#### 2.9.5. AWS Private Certificate Authority
 
 ##### 概要
 
 - プライベート証明書を発行、管理するためのサービス。
 
-#### AWS Secrets Manager
+#### 2.9.6. AWS Secrets Manager
 
 ##### 概要
 
 - アプリケーションのシークレット (パスワードや API キーなどの機密情報) を安全に管理するためのサービス。
 
-#### AWS Security Token Service (AWS STS)
+#### 2.9.7. AWS Security Token Service (AWS STS)
 
 ##### 概要
 
@@ -522,7 +522,7 @@
 - SAML ID フェデレーションによる認証
   - SAML 2.0 (Security Assertion Markup Language 2.0)を利用する場合に利用
 
-#### AWS WAF
+#### 2.9.8. AWS WAF
 
 ##### 概要
 
@@ -531,9 +531,9 @@
   - ユーザーが独自のウェブセキュリティルールを定義することによって、ウェブアプリケーションに対する特定のトラフィックを許可またはブロックすることができる。
 - 悪意あるトラフィックをフィルタリング。
 
-### ストレージ
+### 2.10. ストレージ
 
-#### Amazon Elastic Block Store (Amazon EBS)
+#### 2.10.1. Amazon Elastic Block Store (Amazon EBS)
 
 ##### 概要
 
@@ -546,13 +546,13 @@
   - EBS の利用状況に関係なく、非同期に作成することができる。
     - ベストプラクティスとしては、データに齟齬が発生しないためにも EBS ボリュームを停止した上でスナップショットを取得する方が良いとされている。
 
-#### Amazon Elastic File System (Amazon EFS)
+#### 2.10.2. Amazon Elastic File System (Amazon EFS)
 
 ##### 概要
 
 - Linux インスタンス向けのスケーラブルな、フルマネージドのネットワークファイルシステム。
 
-#### Amazon S3
+#### 2.10.3. Amazon S3
 
 ##### 概要
 
@@ -571,7 +571,7 @@
   - 静的ウェブホスティング機能を有効化、パブリックアクセスブロックの無効化、バケットポリシーの設定が必要。
 - マルチパートアップロード
 
-#### Amazon S3 Glacier
+#### 2.10.4. Amazon S3 Glacier
 
 ##### 概要
 
@@ -582,7 +582,7 @@
 
 ---
 
-## 参照文献とか
+## 3. 参照文献とか
 
 [^1]: [【SAA-C03 版】AWS 認定ソリューションアーキテクト アソシエイト模擬試験問題集（6 回分 390 問）](https://www.udemy.com/course/aws-knan/?srsltid=AfmBOoroNztq6Qz5jycWJPyYldYoSzxEPPi25ErUVWqyok3liojzo_DQ&couponCode=NEWYEARCAREERJP)
 [^2]: [AWS Certified Developer - Associate (DVA-C02) 試験ガイド](https://d1.awsstatic.com/ja_JP/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
