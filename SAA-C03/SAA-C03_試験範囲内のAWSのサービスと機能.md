@@ -520,37 +520,31 @@
 
 - インフラストラクチャをコードで管理するためのツール。
 
-###### テンプレート
+##### 主な機能
 
-■ 形式バージョン (任意)
-テンプレートが準拠している AWS CloudFormation テンプレートバージョンです。テンプレート形式バージョンは API および WSDL バージョンとは関係なく変更できます。
+- テンプレート
+  - 形式バージョン (任意)
+    - テンプレートが準拠している AWS CloudFormation テンプレートバージョンです。テンプレート形式バージョンは API および WSDL バージョンとは関係なく変更できます。
+  - Description (オプション)
+    - テンプレートを説明するテキスト文字列です。このセクションは必ずテンプレートの Format Version セクションの後に記述する必要があります。
+  - メタデータ (オプション)
+    - テンプレートに関する追加情報を提供するオブジェクトです。
+  - パラメータ (任意)
+    - 実行時に (スタックを作成または更新するとき)、テンプレートに渡すことができる値です。テンプレートの Resources および Outputs セクションのパラメータを参照できます。
+  - ルール (オプション)
+    - スタックの作成またはスタックの更新時に、テンプレートに渡されたパラメータまたはパラメータの組み合わせを検証します。
+  - マッピング (任意)
+    - 条件パラメータ値の指定に使用するキーと関連する値のマッピング (検索テーブルに類似したもの)です。Resources セクションと Outputs セクションで Fn::FindInMap 組み込み関数を使用することで、キーと対応する値を一致させることができます。
+  - 条件 (オプション)
+    - 特定のリソースが作成されるかどうかや、スタックの作成または更新中に特定のリソースプロパティが値を割り当てられるかどうかの条件を規定します。
+  - 変換 (オプション)
+    - サーバーレスアプリケーション (Lambda ベースアプリケーションとも呼ばれます) の場合は、使用する AWS Serverless Application Model (AWS SAM) のバージョンを指定します。
+  - リソース (必須)
+    - Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service バケットなど、スタックリソースとそのプロパティを指定します。テンプレートの Resources および Outputs セクションのリソースを参照できます。
+  - 出力 (任意)
+    - スタックのプロパティを確認すると返される値について説明します。たとえば、S3 バケット名の出力を宣言してから、aws cloudformation describe-stacks AWS CLI コマンドを呼び出して名前を表示することができます。
 
-■Description (オプション)
-テンプレートを説明するテキスト文字列です。このセクションは必ずテンプレートの Format Version セクションの後に記述する必要があります。
-
-■ メタデータ (オプション)
-テンプレートに関する追加情報を提供するオブジェクトです。
-
-■ パラメータ (任意)
-実行時に (スタックを作成または更新するとき)、テンプレートに渡すことができる値です。テンプレートの Resources および Outputs セクションのパラメータを参照できます。
-
-■ ルール (オプション)
-スタックの作成またはスタックの更新時に、テンプレートに渡されたパラメータまたはパラメータの組み合わせを検証します。
-
-■ マッピング (任意)
-条件パラメータ値の指定に使用するキーと関連する値のマッピング (検索テーブルに類似したもの)です。Resources セクションと Outputs セクションで Fn::FindInMap 組み込み関数を使用することで、キーと対応する値を一致させることができます。
-
-■ 条件 (オプション)
-特定のリソースが作成されるかどうかや、スタックの作成または更新中に特定のリソースプロパティが値を割り当てられるかどうかの条件を規定します。
-
-■ 変換 (オプション)
-サーバーレスアプリケーション (Lambda ベースアプリケーションとも呼ばれます) の場合は、使用する AWS Serverless Application Model (AWS SAM) のバージョンを指定します。
-
-■ リソース (必須)
-Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service バケットなど、スタックリソースとそのプロパティを指定します。テンプレートの Resources および Outputs セクションのリソースを参照できます。
-
-■ 出力 (任意)
-スタックのプロパティを確認すると返される値について説明します。たとえば、S3 バケット名の出力を宣言してから、aws cloudformation describe-stacks AWS CLI コマンドを呼び出して名前を表示することができます。
+##### 公式ページ
 
 - [CloudFormation テンプレートセクション](https://docs.aws.amazon.com/ja_jp/AWSCloudFormation/latest/UserGuide/template-anatomy.html)
 
@@ -970,14 +964,6 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 
 ##### 主な機能
 
-- AWS Security Token Service (AWS STS)
-  - AWS リソースへのアクセスをコントロールできる一時的セキュリティ認証情報を持つ、信頼されたユーザーを作成および提供する
-  - ウェブ ID フェデレーションによる認証
-    - 外部 の ID プロバイダーを使用してアプリケーションにサインインすることがでる
-    - OpenID Connect を利用する場合に利用
-  - SAML ID フェデレーションによる認証
-    - SAML 2.0 (Security Assertion Markup Language 2.0)を利用する場合に利用
-
 #### 2.14.12. Amazon Inspector
 
 ##### 概要
@@ -1014,13 +1000,27 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 
 - パスワードや API キーなどの機密情報を安全に管理するためのサービス。
 
-#### 2.14.18. AWS Security Hub
+#### 2.14.18. AWS Security Token Service (AWS STS)
+
+##### 概要
+
+- AWS リソースへのアクセスをコントロールできる一時的セキュリティ認証情報を持つ、信頼されたユーザーを作成および提供する
+
+##### 主な機能
+
+- ウェブ ID フェデレーションによる認証
+  - 外部 の ID プロバイダーを使用してアプリケーションにサインインすることがでる
+  - OpenID Connect を利用する場合に利用
+- SAML ID フェデレーションによる認証
+  - SAML 2.0 (Security Assertion Markup Language 2.0)を利用する場合に利用
+
+#### 2.14.19. AWS Security Hub
 
 ##### 概要
 
 - AWS 全体のセキュリティステータスを一元管理するためのダッシュボード。
 
-#### 2.14.19. AWS Shield
+#### 2.14.20. AWS Shield
 
 ##### 概要
 
@@ -1035,7 +1035,7 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
     - これまでに発生した DDoS 攻撃を再検証
     - リアルタイム通知
 
-#### 2.14.20. AWS WAF
+#### 2.14.21. AWS WAF
 
 ##### 概要
 
@@ -1086,7 +1086,6 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 - スナップショット
   - EBS の利用状況に関係なく、非同期に作成することができる。
     - ベストプラクティスとしては、データに齟齬が発生しないためにも EBS ボリュームを停止した上でスナップショットを取得する方が良いとされている。
-  -
 
 #### 2.16.3. Amazon Data Lifecycle Manager (Amazon DLM)
 
@@ -1138,6 +1137,8 @@ Amazon Elastic Compute Cloud インスタンスや Amazon Simple Storage Service
 
 - オンプレミス環境と AWS クラウドを統合するハイブリッドストレージサービス。
 - 保存データはデフォルトで暗号化される。
+
+---
 
 ## 3. 参照文献とか
 
