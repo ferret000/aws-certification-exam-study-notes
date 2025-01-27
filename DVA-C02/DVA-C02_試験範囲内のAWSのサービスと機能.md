@@ -1,10 +1,10 @@
-# [SAA-C03]試験範囲内の AWS のサービスと機能<!-- omit in toc -->
+# [DVA-C02]試験範囲内の AWS のサービスと機能<!-- omit in toc -->
 
 ## 1. はじめに
 
-- [SAA-C03] AWS Certified Solutions Architect - Associate の試験範囲内の AWS サービスと機能についてまとめます
-- 試験概要は[**こちら**](勉強記録_SAA-C03.md)を参照してください
-- 記載内容は、ChatGPT、AWS 公式ページ、Udemy 講座の解説[^1]、その他 Web サイト[^2][^3][^4][^5][^6]を基にしています。
+- [DVA-C02] AWS Certified Developer - Associate の試験範囲内の AWS サービスと機能についてまとめます
+- 試験概要は[**こちら**](./DVA-C02_勉強記録.md)を参照してください
+- 記載内容は、ChatGPT、AWS 公式ページ[^1]、Udemy 講座の解説[^2]、その他 Web サイト[^3][^4][^5][^6]を基にしています。
   - ChatGPT に概要を追加させたものを記載。勉強を進める中で更新予定。
 
 ## 2. 範囲内の AWS のサービスと機能
@@ -584,8 +584,8 @@
 
 ## 3. 参照文献とか
 
-[^1]: [【SAA-C03 版】AWS 認定ソリューションアーキテクト アソシエイト模擬試験問題集（6 回分 390 問）](https://www.udemy.com/course/aws-knan/?srsltid=AfmBOoroNztq6Qz5jycWJPyYldYoSzxEPPi25ErUVWqyok3liojzo_DQ&couponCode=NEWYEARCAREERJP)
-[^2]: [AWS Certified Developer - Associate (DVA-C02) 試験ガイド](https://d1.awsstatic.com/ja_JP/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
+[^1]: [AWS Certified Developer - Associate (DVA-C02) 試験ガイド](https://d1.awsstatic.com/ja_JP/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
+[^2]: [【SAA-C03 版】AWS 認定ソリューションアーキテクト アソシエイト模擬試験問題集（6 回分 390 問）](https://www.udemy.com/course/aws-knan/?srsltid=AfmBOoroNztq6Qz5jycWJPyYldYoSzxEPPi25ErUVWqyok3liojzo_DQ&couponCode=NEWYEARCAREERJP)
 [^3]: [時間がないけど AWS 認定試験に合格したい人に贈る効率の良い勉強法 #AWS](https://qiita.com/ozzy3/items/4fb249a77a579a6cbea3)
 [^4]: [AWS 新資格 Machine Learning Engineer - Associate(MLA-C01)合格体験記](https://qiita.com/ec2_on_aws/items/cc4e245bf47a0d4d803b)
 [^5]: [AWS 認定全冠を維持し続ける理由と 12 冠(13 冠、14 冠？)までの学習方法・資格の難易度まとめ －How to become an Japan AWS All Certifications Engineer(formerly known as APN ALL AWS Certifications Engineer)－](https://tech.nri-net.com/entry/all_aws_certifications_engineer)
