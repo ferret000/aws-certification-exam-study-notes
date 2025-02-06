@@ -15,7 +15,7 @@
 
 ##### 概要
 
-- SQL を使用して S3 に保存されたデータを簡単にクエリ可能にするサーバーレスのインタラクティブなクエリサービス。
+- 標準 SQL を使用して Simple Storage Service (Amazon S3) 内のデータを直接、シンプルに分析できるようにするインタラクティブなクエリサービス。
 
 #### 2.1.2. AWS Data Exchange
 
@@ -49,7 +49,7 @@
 
 ##### 概要
 
-- ストリーミングデータをリアルタイムで収集、処理するサービス。
+- ストリーミングデータをリアルタイムで収集、処理するためのサービス。データ分析やストリーム処理に利用される。
 
 #### 2.1.7. Amazon Kinesis Data Streams
 
@@ -114,13 +114,21 @@
 
 ##### 概要
 
-- GraphQL API を構築し、リアルタイムデータ更新を提供するためのサービス。
+- GraphQL API を構築し、リアルタイムデータ同期と API 作成を容易にするサービス。
 
 #### 2.2.3. Amazon EventBridge
 
 ##### 概要
 
-- サーバーレスのイベントバスサービスで、アプリケーションや SaaS 間のイベント駆動型の統合を可能にする。
+- AWS サービスや独自アプリケーション間のイベントを接続・統合するための、サーバーレスなイベントバスサービス。
+- アマゾン ウェブ サービスのリソースの変更を記述した、システムイベントのほぼリアルタイムのストリームを配信する。
+
+##### 主な機能
+
+##### 公式ページ
+
+- [Amazon EventBridge とは](https://docs.aws.amazon.com/ja_jp/eventbridge/latest/userguide/eb-what-is.html)
+- [Amazon EventBridge イベント](https://docs.aws.amazon.com/ja_jp/eventbridge/latest/userguide/eb-events.html)
 
 #### 2.2.4. Amazon MQ
 
@@ -145,6 +153,52 @@
 ##### 概要
 
 - サーバーレスのワークフローオーケストレーションサービスで、複雑なプロセスを簡単に自動化。
+- 複雑な分散アプリケーションのワークフローを簡単にオーケストレーションするための、サーバーレスなワークフローオーケストレーションサービス。
+
+##### 主な機能
+
+- タスク状態フィールド
+  - Resource (必須)
+  - Arguments (オプション、 JSONata のみ)
+  - Output (オプション、 JSONata のみ)
+  - Parameters (オプション、 JSONPath のみ)
+  - Credentials (オプション)
+  - ResultPath (オプション、 JSONPath のみ)
+  - ResultSelector (オプション、 JSONPath のみ)
+  - Retry (オプション)
+    - 状態でランタイムエラーが発生した場合の再試行ポリシーを定義する。
+    - 個々のステートレベルで設定
+  - Catch (オプション)
+  - TimeoutSeconds (オプション)
+    - アクティビティまたはタスクが States.Timeout エラーでタイムアウトして失敗するまでに実行できる最大時間を指定する。
+    - タイムアウトの値はゼロ以外の正の整数にする必要がある。
+    - デフォルト値は 99999999 。
+  - TimeoutSecondsPath (オプション、 JSONPath のみ)
+  - HeartbeatSeconds (オプション)
+    - タスクがハートビートシグナルを待機する最大間隔を定義する。
+  - HeartbeatSecondsPath (オプション、 JSONPath のみ)
+- API アクション
+  - [CreateActivity](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_CreateActivity.html)
+    - アクティビティの Amazon Resource Name (ARN) を取得する
+  - ## [DeleteActivity](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_DeleteActivity.html)
+  - [GetActivityTask](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_GetActivityTask.html)
+    - スケジュールされたタスクを取得する
+  - [SendTaskHeartbeat](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskHeartbeat.html)
+    - タスクの進行状況を報告する
+  - [SendTaskSuccess](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskSuccess.html)
+    - タスクの成功を報告する
+  - [SendTaskFailure](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskFailure.html)
+    - タスクの失敗を報告する
+  - [StartExecution](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_StartExecution.html)
+    - ステートマシン全体を起動する
+  - [StopExecution](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_StopExecution.html)
+    - ステートマシン全体を停止する
+
+##### 公式ページ
+
+- [Task](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/state-task.html)
+- [Step Functions のエラー処理](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-error-handling.html)
+- [アクティビティタスクの完了を待機中](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-activities.html#activities-wait)
 
 ### 2.3. AWS コスト管理
 
@@ -306,13 +360,13 @@
 
 ##### 概要
 
-- コンテナのデプロイ、管理を簡単に行える AWS のスケーラブルなサービス。
+- コンテナのデプロイ、管理を簡単に行える AWS のスケーラブルなコンテナオーケストレーションサービス。
 
 #### 2.5.6. Amazon Elastic Kubernetes Service (Amazon EKS)
 
 ##### 概要
 
-- Kubernetes クラスタを AWS 上でフルマネージドで運用できるサービス。
+- Kubernetes を使用したコンテナ管理を AWS 上でサポートするマネージドサービス。
 
 ### 2.6. データベース
 
@@ -320,8 +374,8 @@
 
 ##### 概要
 
-- 高性能で高可用性を持つリレーショナルデータベースサービス。
-- 標準的な MySQL データベースと比べて最大で 5 倍、標準的な PostgreSQL データベースと比べて最大で 3 倍高速化することが可能。
+- 高性能で高可用性を持つリレーショナルデータベースサービス。MySQL と PostgreSQL に互換性がある。
+  - 標準的な MySQL データベースと比べて最大で 5 倍、標準的な PostgreSQL データベースと比べて最大で 3 倍高速化することが可能。
 
 ##### 主な機能
 
@@ -346,7 +400,7 @@
 
 ##### 概要
 
-- 高速でスケーラブルな NoSQL データベースサービス。
+- フルマネージドで高速、スケーラブルな NoSQL データベースサービス。
 - 主キーでインデックスをつけられたデータを格納することができる。
 - 1 バイトから最大 400KB までの範囲の項目への低レイテンシーの読み取りおよび書き込みアクセスが可能。
   - Web セッション情報やメタデータの保存に最適。
@@ -371,6 +425,7 @@
 
 - Redis または Memcached を使用したインメモリデータストアサービス。
 - SQL クエリ処理結果をインメモリ DB に保持して高速化するために利用。
+- Redis または Memcached のインメモリデータストアを利用できるマネージドサービス。
 
 #### 2.6.6. Amazon Keyspaces (Apache Cassandra 向け)
 
@@ -394,7 +449,7 @@
 
 ##### 概要
 
-- MySQL、PostgreSQL、Oracle など複数のリレーショナルデータベースエンジンをサポートするマネージドサービス。
+- 複数のデータベースエンジン (MySQL、PostgreSQL、Oracle、MariaDB、SQL Server など) をサポートするリレーショナルデータベースサービス。
 
 #### 2.6.10. Amazon Redshift
 
@@ -416,7 +471,18 @@
 
 ##### 概要
 
-- ウェブおよびモバイルアプリケーションの構築、デプロイ、ホスティングを簡単に行えるフルマネージドサービス。
+- 分散トレース機能を提供し、アプリケーションのパフォーマンスとデバッグを支援するサービス。
+
+##### 主な機能
+
+- トレースデータ
+  - トレースデータを使用して、アプリケーションで使用されるサービスのマップを作成する。
+  - トレースデータを使用すると、特定のサービスまたは問題について詳しく調査できる。
+  - このデータは、アプリケーション内のサービス間の接続と、平均レイテンシーと障害率を含む各サービスの集計データのビューを提供する。
+
+##### 公式ページ
+
+- [AWS X-Ray の特徴](https://aws.amazon.com/jp/xray/features/)
 
 #### 2.8.2. Amazon API Gateway
 
@@ -583,6 +649,16 @@
 
 - AWS アカウント内での API 呼び出しを記録し、監査を支援するサービス。
 
+##### 主な機能
+
+- イベント履歴
+  - ガバナンス、コンプライアンス運用、およびリスク監査の目的で API コールを記録するために使用される。
+
+##### 公式ページ
+
+- [AWS CloudTrail とは](https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+- [CloudTrail イベント履歴でのイベントの表示](https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/view-cloudtrail-events.html)
+
 #### 2.10.5. Amazon CloudWatch
 
 ##### 概要
@@ -687,6 +763,14 @@
 ##### 概要
 
 - コスト、セキュリティ、パフォーマンス、耐障害性を最適化する推奨を提供するツール。
+- AWS のベストプラクティスに従うように AWS のリソースをプロビジョニングするのに役立つガイダンスをリアルタイムで提供する。
+- システム全体の使用状況をレポート可能。
+
+##### 主な機能
+
+##### 公式ページ
+
+- [AWS Trusted Advisor](https://docs.aws.amazon.com/ja_jp/awssupport/latest/user/trusted-advisor.html)
 
 #### 2.10.21. AWS Well-Architected Tool
 
@@ -796,7 +880,7 @@
 
 ##### 概要
 
-- トラフィックを分散してアプリケーションの高可用性を実現するロードバランシングサービス。
+- アプリケーションへのトラフィックを自動的に分散し、アプリケーションの高可用性を実現するロードバランシングサービス。
 
 ##### 主な機能
 
@@ -826,7 +910,7 @@
 
 ##### 概要
 
-- 高可用性でスケーラブルな DNS およびドメイン管理サービス。
+- 高可用性でスケーラブルなドメインネームシステム (DNS) およびドメイン管理サービス。
 
 ##### 主な機能
 
@@ -863,7 +947,7 @@
 
 ##### 概要
 
-- AWS 内に仮想ネットワークを作成し、リソースをセキュアに管理するサービス。
+- AWS クラウド内に分離された仮想ネットワーク環境を構築し、リソースをセキュアに管理するサービス。
 
 ##### 主な機能
 
@@ -916,7 +1000,8 @@
 
 ##### 概要
 
-- ユーザー認証とアプリケーションのセキュリティを簡素化する ID 管理サービス。
+
+- ユーザー認証やデバイス認証を提供・簡素化するアイデンティティ(ID)管理サービス。
 
 #### 2.14.6. Amazon Detective
 
@@ -1004,13 +1089,13 @@
 
 ##### 概要
 
-- パスワードや API キーなどの機密情報を安全に管理するためのサービス。
+- アプリケーションのシークレット (パスワードや API キーなどの機密情報) を安全に管理するためのサービス。
 
 #### 2.14.18. AWS Security Token Service (AWS STS)
 
 ##### 概要
 
-- AWS リソースへのアクセスをコントロールできる一時的セキュリティ認証情報を持つ、信頼されたユーザーを作成および提供する
+- AWS リソースへのアクセスをコントロールできる一時的なセキュリティ認証情報を持つ信頼されたユーザーを作成および提供するサービス。
 
 ##### 主な機能
 
@@ -1048,6 +1133,7 @@
 - アプリケーションを不正アクセスから保護するウェブアプリケーションファイアウォール。
 - AWS フラストラクチャに対する DDoS 攻撃を緩和して、レイヤー 7 における DDoS 攻撃から WEB アプリケーションを保護する。
   - ユーザーが独自のウェブセキュリティルールを定義することによって、ウェブアプリケーションに対する特定のトラフィックを許可またはブロックすることができる。
+- 悪意あるトラフィックをフィルタリング。
 
 ### 2.15. サーバーレス
 
@@ -1068,9 +1154,31 @@
 
 ##### 概要
 
-- イベント駆動型でコードを実行するサーバーレスコンピューティングサービス。
+- サーバーレスでコードを実行するためのサービス。インフラストラクチャの管理不要で、イベント駆動型の処理が可能。
 - 最大 10GB までのデータ容量を扱うことが可能。
   - 2022 年５月より、AWS Lambda のアップデートで最大 10GB まで拡張可能となったエフェメラルストレージを拡張できるようになった。
+
+##### 主な機能
+
+- バージョン
+- エイリアス
+  - すべてのエイリアスには独自の ARN がある。
+    - したがって、新しいバージョンのエイリアスが発行されるときに、イベントソースマッピングを新しい ARN で更新する必要がありる。
+  - Lambda エイリアスは別の Lambda エイリアスに割り当てることはできず、Lambda 関数のバージョンのみに割り当てることができる。
+- レイヤー
+  - 特定のバージョンの Lambda 関数を指すポインタ
+- イベントソースマッピング
+
+  - バージョン ARN またはエイリアス ARN に割り当てることができる。
+    - イベントソースマッピングで Lambda 関数に ARN を使用する代わりに、エイリアス ARN を使用できる為、新しいバージョンの昇格時または以前のバージョンへのロールバック時にイベントソースマッピングを更新する必要がない。
+  - レイヤー ARN には割り当てられない。
+
+##### 公式ページ
+
+- [Lambda 関数のバージョン](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/configuration-versions.html)
+- [Lambda 関数のエイリアス](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/chapter-layers.html)
+- [Lambda レイヤーの作成と共有](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/chapter-layers.html)
+-
 
 ### 2.16. ストレージ
 
@@ -1084,7 +1192,7 @@
 
 ##### 概要
 
-- EC2 インスタンス用のスケーラブルなブロックストレージ。
+- Amazon EC2 にアタッチ可能な、スケーラブルな高性能ブロックストレージ。
 - EC2 インスタンスから Amazon EBS ボリュームをデタッチするには、明示的にデタッチ操作を実行する必要がある。
 
 ##### 主な機能
@@ -1107,7 +1215,7 @@
 
 ##### 概要
 
-- Linux インスタンス向けのスケーラブルな共有ファイルストレージ。
+- Linux インスタンス向けのスケーラブルな、フルマネージドのネットワークファイルシステム。
 
 #### 2.16.5. Amazon FSx (すべてのタイプに対応)
 
@@ -1119,14 +1227,20 @@
 
 ##### 概要
 
-- オブジェクトストレージで、データの保存と取得を可能にするスケーラブルなサービス。
+- データの保存と取得を可能にするスケーラブルで耐久性の高いオブジェクトストレージサービス。
+- Amazon S3 に格納可能なデータの総量とオブジェクトの数には制限は無い。
+- 個別の Amazon S3 オブジェクトのサイズは、最低 0 バイトから最大 5 TB まで。
+- 1 つの PUT にアップロード可能なオブジェクトの最大サイズは 5 GB 。
+  - 100 MB を超えるオブジェクトの場合は、マルチパートアップロード機能の利用を要検討。
 
 ##### 主な機能
 
+- バケット
 - バージョニング
 - 静的 WEB ホスティング
   - Index.html を設定することで、静的 WEB サイトを構築可能。
   - 静的ウェブホスティング機能を有効化、パブリックアクセスブロックの無効化、バケットポリシーの設定が必要。
+- マルチパートアップロード
 
 #### 2.16.7. Amazon S3 Glacier
 

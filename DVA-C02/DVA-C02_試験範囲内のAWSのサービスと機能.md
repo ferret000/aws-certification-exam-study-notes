@@ -15,7 +15,7 @@
 
 ##### 概要
 
-- 標準 SQL を使用して Simple Storage Service (Amazon S3) 内のデータを直接、シンプルに分析できるようにするインタラクティブなクエリサービスです。
+- 標準 SQL を使用して Simple Storage Service (Amazon S3) 内のデータを直接、シンプルに分析できるようにするインタラクティブなクエリサービス。
 
 #### 2.1.2. Amazon Kinesis
 
@@ -64,6 +64,14 @@
 ##### 概要
 
 - AWS サービスや独自アプリケーション間のイベントを接続・統合するための、サーバーレスなイベントバスサービス。
+- アマゾン ウェブ サービスのリソースの変更を記述した、システムイベントのほぼリアルタイムのストリームを配信する。
+
+##### 主な機能
+
+##### 公式ページ
+
+- [Amazon EventBridge とは](https://docs.aws.amazon.com/ja_jp/eventbridge/latest/userguide/eb-what-is.html)
+- [Amazon EventBridge イベント](https://docs.aws.amazon.com/ja_jp/eventbridge/latest/userguide/eb-events.html)
 
 #### 2.2.3. Amazon Simple Notification Service (Amazon SNS)
 
@@ -83,6 +91,52 @@
 
 - サーバーレスのワークフローオーケストレーションサービスで、複雑なプロセスを簡単に自動化。
 - 複雑な分散アプリケーションのワークフローを簡単にオーケストレーションするための、サーバーレスなワークフローオーケストレーションサービス。
+
+##### 主な機能
+
+- タスク状態フィールド
+  - Resource (必須)
+  - Arguments (オプション、 JSONata のみ)
+  - Output (オプション、 JSONata のみ)
+  - Parameters (オプション、 JSONPath のみ)
+  - Credentials (オプション)
+  - ResultPath (オプション、 JSONPath のみ)
+  - ResultSelector (オプション、 JSONPath のみ)
+  - Retry (オプション)
+    - 状態でランタイムエラーが発生した場合の再試行ポリシーを定義する。
+    - 個々のステートレベルで設定
+  - Catch (オプション)
+  - TimeoutSeconds (オプション)
+    - アクティビティまたはタスクが States.Timeout エラーでタイムアウトして失敗するまでに実行できる最大時間を指定する。
+    - タイムアウトの値はゼロ以外の正の整数にする必要がある。
+    - デフォルト値は 99999999 。
+  - TimeoutSecondsPath (オプション、 JSONPath のみ)
+  - HeartbeatSeconds (オプション)
+    - タスクがハートビートシグナルを待機する最大間隔を定義する。
+  - HeartbeatSecondsPath (オプション、 JSONPath のみ)
+- API アクション
+  - [CreateActivity](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_CreateActivity.html)
+    - アクティビティの Amazon Resource Name (ARN) を取得する
+  - [DeleteActivity](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_DeleteActivity.html)
+    -
+  - [GetActivityTask](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_GetActivityTask.html)
+    - スケジュールされたタスクを取得する
+  - [SendTaskHeartbeat](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskHeartbeat.html)
+    - タスクの進行状況を報告する
+  - [SendTaskSuccess](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskSuccess.html)
+    - タスクの成功を報告する
+  - [SendTaskFailure](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_SendTaskFailure.html)
+    - タスクの失敗を報告する
+  - [StartExecution](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_StartExecution.html)
+    - ステートマシン全体を起動する
+  - [StopExecution](https://docs.aws.amazon.com/ja_jp/step-functions/latest/apireference/API_StopExecution.html)
+    - ステートマシン全体を停止する
+
+##### 公式ページ
+
+- [Task](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/state-task.html)
+- [Step Functions のエラー処理](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-error-handling.html)
+- [アクティビティタスクの完了を待機中](https://docs.aws.amazon.com/ja_jp/step-functions/latest/dg/concepts-activities.html#activities-wait)
 
 ### 2.3. コンピューティング
 
@@ -139,6 +193,28 @@
 - 最大 10GB までのデータ容量を扱うことが可能。
   - 2022 年５月より、AWS Lambda のアップデートで最大 10GB まで拡張可能となったエフェメラルストレージを拡張できるようになった。
 - SAA-C03 の試験ガイドでは `サーバーレス` に分類。
+
+##### 主な機能
+
+- バージョン
+- エイリアス
+  - すべてのエイリアスには独自の ARN がある。
+    - したがって、新しいバージョンのエイリアスが発行されるときに、イベントソースマッピングを新しい ARN で更新する必要がありる。
+  - Lambda エイリアスは別の Lambda エイリアスに割り当てることはできず、Lambda 関数のバージョンのみに割り当てることができる。
+- レイヤー
+  - 特定のバージョンの Lambda 関数を指すポインタ
+- イベントソースマッピング
+
+  - バージョン ARN またはエイリアス ARN に割り当てることができる。
+    - イベントソースマッピングで Lambda 関数に ARN を使用する代わりに、エイリアス ARN を使用できる為、新しいバージョンの昇格時または以前のバージョンへのロールバック時にイベントソースマッピングを更新する必要がない。
+  - レイヤー ARN には割り当てられない。
+
+##### 公式ページ
+
+- [Lambda 関数のバージョン](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/configuration-versions.html)
+- [Lambda 関数のエイリアス](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/chapter-layers.html)
+- [Lambda レイヤーの作成と共有](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/chapter-layers.html)
+-
 
 #### 2.3.4. AWS Serverless Application Model (AWS SAM)
 
@@ -318,6 +394,18 @@
 ##### 概要
 
 - 分散トレース機能を提供し、アプリケーションのパフォーマンスとデバッグを支援するサービス。
+- SAA-C03 の試験ガイドでは `フロントエンドのウェブとモバイル` に分類。
+
+##### 主な機能
+
+- トレースデータ
+  - トレースデータを使用して、アプリケーションで使用されるサービスのマップを作成する。
+  - トレースデータを使用すると、特定のサービスまたは問題について詳しく調査できる。
+  - このデータは、アプリケーション内のサービス間の接続と、平均レイテンシーと障害率を含む各サービスの集計データのビューを提供する。
+
+##### 公式ページ
+
+- [AWS X-Ray の特徴](https://aws.amazon.com/jp/xray/features/)
 
 ### 2.7. マネジメントとガバナンス
 
@@ -385,6 +473,16 @@
 
 - AWS アカウント内での API 呼び出しを記録し、監査を支援するサービス。
 
+##### 主な機能
+
+- イベント履歴
+  - ガバナンス、コンプライアンス運用、およびリスク監査の目的で API コールを記録するために使用される。
+
+##### 公式ページ
+
+- [AWS CloudTrail とは](https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/cloudtrail-user-guide.html)
+- [CloudTrail イベント履歴でのイベントの表示](https://docs.aws.amazon.com/ja_jp/awscloudtrail/latest/userguide/view-cloudtrail-events.html)
+
 #### 2.7.6. Amazon CloudWatch
 
 ##### 概要
@@ -402,6 +500,20 @@
 ##### 概要
 
 - AWS リソースとオンプレミス環境の運用管理を統合するサービス。
+
+#### 2.10.20. AWS Trusted Advisor
+
+##### 概要
+
+- コスト、セキュリティ、パフォーマンス、耐障害性を最適化する推奨を提供するツール。
+- AWS のベストプラクティスに従うように AWS のリソースをプロビジョニングするのに役立つガイダンスをリアルタイムで提供する。
+- システム全体の使用状況をレポート可能。
+
+##### 主な機能
+
+##### 公式ページ
+
+- [AWS Trusted Advisor](https://docs.aws.amazon.com/ja_jp/awssupport/latest/user/trusted-advisor.html)
 
 ### 2.8. ネットワークとコンテンツ配信
 
