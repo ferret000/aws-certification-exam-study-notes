@@ -501,7 +501,7 @@
 
 - AWS リソースとオンプレミス環境の運用管理を統合するサービス。
 
-#### 2.10.20. AWS Trusted Advisor
+#### 2.7.9. AWS Trusted Advisor
 
 ##### 概要
 
